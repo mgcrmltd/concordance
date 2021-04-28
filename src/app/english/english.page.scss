@@ -1,0 +1,32 @@
+body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+div.topdiv {
+	clear: both;
+	position: fixed;
+	top: 0;
+	height: 40%;
+	width: 100%;
+	background-color: #990000;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+	max-height: 50%;
+	overflow-y: scroll;
+}
+
+div.bottomdiv {
+	clear: both;
+	position: fixed;
+	bottom: 0;
+	height: 60%;
+	width: 100%;
+	background-color: #009900;
+	color: #FFFFFF;
+	font-size: 16px;
+	text-align: center;
+}
+

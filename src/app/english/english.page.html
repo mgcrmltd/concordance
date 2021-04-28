@@ -1,0 +1,77 @@
+<ion-content>
+  <form [formGroup]="loginForm">
+    <div class="topdiv">
+  <ion-grid style="border-top: 150px;">
+    <ion-row >
+      <ion-col size="3">
+      <ion-label>Ignore List</ion-label>
+
+            <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+              <ion-fab-button size="small" (click)="addTaskTitle()">
+                <ion-icon name="add"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            <ion-fab vertical="top" horizontal="end" slot="fixed">
+              <ion-fab-button size="small" (click)="save()">
+                <ion-icon name="save"></ion-icon>
+              </ion-fab-button>
+            </ion-fab>
+            <ion-list *ngIf="ignoreList.length">
+              <ion-item *ngFor="let ignore of ignoreList">
+                <ion-label>{{ignore}}</ion-label>
+                <ion-button color="danger" (click)="deleteIgnore(ignore)" slot="end">
+                  Remove
+                </ion-button>
+              </ion-item>
+
+            </ion-list>
+
+      </ion-col>
+      <ion-col size="3">
+      <ion-label>Options</ion-label>
+
+        <ion-item style="height: 100px;">
+          <ion-label>Ignore Minimal</ion-label>
+          <ion-toggle slot="start"  color="success"
+            checked></ion-toggle>
+        </ion-item>
+        <ion-item style="height: 100px;">
+          <ion-label>Ignore Stop Words</ion-label>
+          <ion-toggle slot="start"  color="success"
+            checked></ion-toggle>
+        </ion-item>
+        <ion-item>
+                <ion-input type="text" formControlName="userWord"  placeholder="Enter a new word to ignore" >
+                </ion-input>
+                <ion-button (click)="addTask()" slot="end">
+                  Add
+                </ion-button>
+        </ion-item>
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  </div>
+  
+  <div class="bottomdiv">
+
+    <ion-grid style="min-height: 50%; max-height: 50%">
+      <ion-row >
+        <ion-col >
+          <ion-textarea rows=15  style="text-align: left; border-style: dashed; " formControlName="bulktext" placeholder="Enter text here and click the button">
+            <ion-button (click)="performWordCount()" color="danger" slot="start">
+              Count
+            </ion-button>
+          </ion-textarea>
+       
+        </ion-col>
+        <ion-col>
+          <ion-textarea style="text-align: left;" formControlName="resultstext" placeholder="Resultshere">
+          </ion-textarea>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+  </div>
+  </form>  
+</ion-content>
