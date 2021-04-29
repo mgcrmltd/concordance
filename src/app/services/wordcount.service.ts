@@ -11,8 +11,10 @@ export class WordcountService {
 
   constructor() { }
 
-  measure = function (sampleText: string) {
-    const parsedToArrayText = this.parseText(sampleText);
+  measure = function (sampleText: string, exclude:string[]) {
+    var parsedToArrayText = this.parseText(sampleText);
+
+    parsedToArrayText = parsedToArrayText.filter(n => !exclude.includes(n));
     const wordsCountMap = this.findMostPopularWords(parsedToArrayText);
     const ratedWords = this.sortByRating(wordsCountMap);
     return ratedWords;
@@ -27,6 +29,14 @@ export class WordcountService {
         </div>
     `);
     });
+  }
+
+  formatResultToList = function (ratedWords) {
+    var retStr:string = "";
+    ratedWords.forEach((word) => {
+      retStr += `${word.split(':')[0]}\t${word.split(':')[1].trim()} \n`
+    });
+    return retStr;
   }
 
   parseText = function (sampleText: string) {

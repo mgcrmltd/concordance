@@ -9,5 +9,7 @@ export class AppComponent {
     { title: 'English', url: '/english', icon: 'mail' },
     { title: 'Arabic', url: '/folder/Outbox', icon: 'paper-plane' },
   ];
-  constructor() {}
+  constructor() {
+    
+  }
 }

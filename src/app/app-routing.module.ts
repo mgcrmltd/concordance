@@ -6,14 +6,6 @@ const routes: Routes = [
     path: '',
     redirectTo: 'english',
     pathMatch: 'full'
-  },
-  {
-    path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
-  },
-  {
-    path: 'english',
-    loadChildren: () => import('./english/english.module').then( m => m.EnglishPageModule)
   }
 ];
 
